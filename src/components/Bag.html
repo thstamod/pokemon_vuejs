@@ -1,0 +1,29 @@
+<div>
+  <h1>{{title}}</h1>
+  <div v-if="inventory.length">
+    <div>
+      <span
+        >You have {{inventory.length}} {{inventory.length > 1 ? "pokemons" :
+        "pokemon"}}
+      </span>
+      <ul style="list-style-type:none;padding-inline-start:0">
+        <li v-for="pokemon in inventory">
+          {{pokemon.name}}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <span v-else>Your pokidex is empty!!</span>
+  <div>
+    <span style="color: #0bda3f" v-if="pokeballs >= 10">
+      You have {{pokeballs}} pokeballs left
+    </span>
+    <span style="color: #e9a30c" v-else-if="pokeballs >= 5 && pokeballs < 10">
+      You have {{pokeballs}} pokeballs left
+    </span>
+    <span style="color: #815b08" v-else-if="pokeballs > 0 && pokeballs < 5">
+      You have only {{pokeballs}} pokeballs
+    </span>
+    <span style="color: #f74c09" v-else>No pokeballs have left</span>
+  </div>
+</div>

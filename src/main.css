@@ -1,0 +1,163 @@
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+
+.appContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.gamePlaYContainer {
+  display: flex;
+}
+.gameContainer__child {
+  width: 50%;
+}
+.arena {
+  position: relative;
+  border: 2px solid black;
+  width: 100%;
+  max-width: 600px;
+  height: 300px;
+  overflow: hidden;
+  background-color: #f6f6f6;
+}
+.pokemon_wrapper {
+  position: absolute;
+  right: -30px;
+  height: 180px;
+  top: -10px;
+}
+
+.ash_wrapper {
+  width: 100px;
+  position: absolute;
+  left: 0px;
+  bottom: -10px;
+}
+
+/* ANIMATIONS */
+
+.slide-fade-p-enter-active,
+.slide-fade-a-enter-active {
+  transition: all 0.8s ease;
+}
+.slide-fade-p-leave-active,
+.slide-fade-a-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.slide-fade-p-enter, .slide-fade-p-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateX(180px);
+  opacity: 0;
+}
+
+.slide-fade-a-enter, .slide-fade-a-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateX(-180px);
+  opacity: 0;
+}
+
+.exitPokeball
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transition: all 0.8s ease;
+}
+.throwPokeball
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  animation: ballanimation 2s;
+  animation-fill-mode: forwards;
+}
+
+.pokeball {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+@keyframes ballanimation {
+  0% {
+    transform: translate(0px, -50px) rotate(0deg);
+  }
+  100% {
+    transform: translate(460px, -199px) rotate(180deg);
+  }
+}
+
+.button {
+  position: relative;
+  display: inline-block;
+  margin: 20px;
+  padding: 0;
+  border: none;
+}
+
+.button a {
+  color: white;
+  font-family: Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #ffa12b;
+  display: block;
+  position: relative;
+  padding: 20px 35px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  text-shadow: 0px 1px 0px #000;
+  filter: dropshadow(color=#000, offx=0px, offy=1px);
+  -webkit-box-shadow: inset 0 1px 0 #ffe5c4, 0 10px 0 #915100;
+  -moz-box-shadow: inset 0 1px 0 #ffe5c4, 0 10px 0 #915100;
+  box-shadow: inset 0 1px 0 #ffe5c4, 0 10px 0 #915100;
+
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.button a:active {
+  top: 10px;
+  background-color: #f78900;
+
+  -webkit-box-shadow: inset 0 1px 0 #ffe5c4, inset 0 -3px 0 #915100;
+  -moz-box-shadow: inset 0 1px 0 #ffe5c4, inset 0 -3pxpx 0 #915100;
+  box-shadow: inset 0 1px 0 #ffe5c4, inset 0 -3px 0 #915100;
+}
+.button.disabled {
+  pointer-events: none;
+}
+.button.disabled a {
+  top: 10px;
+  background-color: #706f6f;
+  pointer-events: none;
+  -webkit-box-shadow: inset 0 1px 0 #ffe5c4, inset 0 -3px 0 #915100;
+  -moz-box-shadow: inset 0 1px 0 #ffe5c4, inset 0 -3pxpx 0 #915100;
+  box-shadow: inset 0 1px 0 #ffe5c4, inset 0 -3px 0 #915100;
+}
+
+.button:after {
+  content: "";
+  height: 100%;
+  width: 100%;
+  padding: 4px;
+  position: absolute;
+  bottom: -15px;
+  left: -4px;
+  z-index: -1;
+  background-color: #2b1800;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.button a:focus {
+  outline: none;
+}

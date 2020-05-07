@@ -1,0 +1,34 @@
+<div>
+  <h1>{{title}}</h1>
+  <div class="arena">
+    <transition name="slide-fade-p" v-on:after-leave="afterLeave">
+      <img
+        v-on:load="loadImgPokemon"
+        :src="getImgUrl()"
+        v-show="pokemonIsAppeared && loadedPokemon"
+        class="pokemon_wrapper"
+      />
+    </transition>
+    <transition name="slide-fade-a">
+      <img
+        v-on:load="loadImgAsh"
+        src="./photo-ash.png"
+        v-show="ashIsAppeared && loadedAsh"
+        class="ash_wrapper"
+      />
+    </transition>
+    <transition
+      name="ball"
+      enter-active-class="throwPokeball"
+      leave-active-class="exitPokeball"
+      v-on:after-enter="afterEnterBall"
+    >
+      <img
+        v-on:load="loadImgPokeball"
+        src="./pokeball.png"
+        v-show="pokeballIsAppeared && loadedPokeball"
+        class="pokeball"
+      />
+    </transition>
+  </div>
+</div>

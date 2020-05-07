@@ -1,0 +1,40 @@
+<div id="app" class="appContainer">
+  <div class="gamePlaYContainer">
+    <Wild
+      class="gameContainer__child"
+      :pokemon="appeared"
+      :pokemonIsAppeared="pokemonIsAppeared"
+      :ashIsAppeared="ashIsAppeared"
+      :pokeballIsAppeared="pokeballIsAppeared"
+      @escaped="selectRandomPokemon"
+      @pokeballExit="pokeballExit"
+    />
+    <div class="gameContainer__child">
+      <div style="padding-top:90px">
+        <div
+          class="button"
+          :class="{ disabled: ashIsAppeared || pokeballsUnavailable}"
+          @click="fightFn"
+        >
+          <a>Fight</a>
+        </div>
+        <div
+          class="button"
+          :class="{ disabled: !ashIsAppeared || pokeballsUnavailable}"
+          @click="throwPokeballFn"
+        >
+          <a>Throw Pokeball</a>
+        </div>
+        <div class="button" @click="escapeFn"><a>Escape</a></div>
+      </div>
+      <Bag :pokeball="pokeballIsAppeared" :inventory="pokidex" />
+    </div>
+  </div>
+  <div>
+    <ul style="list-style-type:none">
+      <li v-for="(status, index) in statuses">
+        {{status}}
+      </li>
+    </ul>
+  </div>
+</div>
